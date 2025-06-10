@@ -209,3 +209,71 @@
   background: #f8f9fa;
   min-height: calc(100vh - 64px);
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sidenav {
+    position: fixed; /* Or absolute, fixed is often better for overlays */
+    z-index: 1000; /* Ensure it's above other content */
+    width: 280px; /* Keep original width or adjust as needed */
+    /* By default, it could be hidden off-screen */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease; /* Animate the slide-in/out */
+  }
+
+  .sidenav.opened-overlay { /* This class would be toggled by component logic */
+    transform: translateX(0);
+  }
+
+  /* Override minimized styles for mobile overlay behavior */
+  .sidenav.minimized {
+    min-width: 280px; /* Full width when open as overlay */
+    width: 280px;
+    padding: 0; /* Reset padding or adjust as needed for overlay */
+    transform: translateX(-100%); /* Hidden by default */
+  }
+
+  .sidenav.minimized.opened-overlay {
+    transform: translateX(0); /* Shown when opened-overlay is added */
+  }
+
+  /* Ensure content takes full width */
+  .main-content, .content-shifted {
+    margin-left: 0 !important;
+  }
+
+  .sidenav + .main-content { /* Remove margin added for desktop minimized state */
+    margin-left: 0 !important;
+  }
+
+  .toolbar {
+    padding-left: 8px; /* Reduce padding on smaller screens */
+    padding-right: 8px;
+  }
+
+  /* Example: Hide toolbar title on very small screens - might need HTML class */
+  /*
+  .toolbar span:first-child {
+    display: none;
+  }
+  */
+
+  /* Adjust content wrapper padding if global responsive styles aren't sufficient */
+  .content-wrapper {
+    padding: 16px; /* Or use var(--responsive-padding) if defined globally */
+  }
+
+  /* Make sure the toggle button is always visible and functional */
+  .sidebar-header {
+    /* Ensure toggle button is accessible, adjust if necessary */
+  }
+
+  /* User section and footer might need adjustments if sidenav content is too crowded */
+  .user-section {
+    /* padding: 16px 8px; */ /* Example adjustment */
+  }
+
+  .navigation-list {
+    /* padding: 8px 0; */ /* Example adjustment */
+  }
+}

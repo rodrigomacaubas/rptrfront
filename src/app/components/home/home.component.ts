@@ -58,7 +58,7 @@ import { MatButtonModule } from '@angular/material/button';
     }
     
     .info-card {
-      height: 200px;
+      /* height: 200px; Removed fixed height to allow content-based sizing */
     }
     
     h1 {
@@ -67,6 +67,17 @@ import { MatButtonModule } from '@angular/material/button';
       -webkit-text-fill-color: transparent;
       background-clip: text;
       margin-bottom: 24px;
+    }
+
+    @media (max-width: 600px) {
+      .cards-grid {
+        gap: 16px;
+        margin-top: 16px;
+      }
+      h1 {
+        margin-bottom: 16px;
+        font-size: 28px; /* Example responsive font size for h1 */
+      }
     }
   `]
 })

@@ -398,15 +398,43 @@ interface UserPhone {
       .section-header {
         flex-direction: column;
         align-items: stretch;
-        gap: 16px;
+        gap: 12px; /* Reduced gap for stacked header */
       }
       
       .addresses-grid, .phones-grid {
         grid-template-columns: 1fr;
+        gap: 12px; /* Reduced gap for grids */
       }
       
       .form-row {
         flex-direction: column;
+      }
+
+      .tab-content {
+        padding: 16px 0; /* Reduced padding */
+      }
+
+      .profile-card {
+        margin-bottom: 16px; /* Reduced margin */
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 24px; /* Adjusted font size */
+        margin-bottom: 16px; /* Adjusted margin */
+      }
+
+      .section-header h2 {
+        font-size: 18px; /* Adjusted font size */
+      }
+
+      .tab-content {
+        padding: 16px 0; /* Consistent padding for smaller screens */
+      }
+
+      .addresses-grid, .phones-grid {
+        gap: 12px; /* Consistent gap */
       }
     }
   `]
